@@ -36,6 +36,10 @@ fn get_cpu_from_proc() -> String {
                 .parse()
                 .unwrap_or(0);
         }
+
+        if !model_name.is_empty() && cpu_cores > 0 {
+            break;
+        }
     }
 
     let freq = std::fs::read_to_string(FREQ_PATH).unwrap_or_else(|_| "0".to_string());
