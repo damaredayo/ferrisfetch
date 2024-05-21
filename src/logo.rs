@@ -7,6 +7,7 @@ pub fn fetch_by_os(os: &String) -> String {
         "Linux Mint" => include_str!("../logos/mint.txt").to_string(),
         "openSUSE" => include_str!("../logos/opensuse.txt").to_string(),
         "Ubuntu" => include_str!("../logos/ubuntu.txt").to_string(),
+        "Darwin" => include_str!("../logos/macos.txt").to_string(),
         _ => include_str!("../logos/unknown.txt").to_string(),
     }
 }
