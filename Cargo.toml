@@ -1,0 +1,12 @@
+[package]
+name = "ferrisfetch"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sysinfo = "0.30"
+whoami = "1.5"
+
+ash = "0.38"
+nvml-wrapper = "0.10"
+rocm_smi_lib = "0.2"

@@ -1,0 +1,15 @@
+mod cpu;
+mod de;
+mod disk;
+mod display;
+mod gpu;
+mod host;
+mod hostname;
+mod kernel;
+mod mem;
+mod os;
+mod packages;
+mod shell;
+mod term;
+mod uptime;
+mod wm;
