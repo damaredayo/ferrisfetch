@@ -76,7 +76,6 @@ fn count_apt_packages() -> usize {
     package_count
 }
 
-
 fn count_pacman_packages() -> usize {
     let mut package_count = 0;
 
@@ -101,7 +100,8 @@ fn count_homebrew_packages() -> usize {
     let mut package_count = 0;
 
     if let Ok(entries) = std::fs::read_dir(HOMEBREW_CELLAR_PATH) {
-        package_count = entries.filter_map(|entry| entry.ok())
+        package_count = entries
+            .filter_map(|entry| entry.ok())
             .filter(|entry| entry.path().is_dir())
             .count();
     }

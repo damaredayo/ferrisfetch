@@ -10,10 +10,30 @@ const FREQ_PATH: &str = "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
 
 impl State {
     pub fn fetch_cpu(&mut self) -> String {
-        get_cpu_from_proc()
+        #[cfg(target_os = "linux")]
+        return get_cpu_from_proc();
+
+        #[cfg(not(target_os = "linux"))]
+        return self.get_cpu_sysinfo();
+    }
+
+    #[cfg(not(target_os = "linux"))]
+    fn get_cpu_sysinfo(&mut self) -> String {
+        let cpus = self.sys.cpus();
+        let cpu = cpus.first().unwrap();
+
+        let freq = cpus
+            .iter()
+            .map(|cpu| cpu.frequency())
+            .max_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal))
+            .unwrap_or(0) as f64
+            / 1_000.0;
+
+        format!("{} ({}) @ {:.2} GHz", cpu.brand(), cpus.len(), freq)
     }
 }
 
+#[cfg(target_os = "linux")]
 fn get_cpu_from_proc() -> String {
     let file = File::open(CPUINFO_PATH).expect("Failed to open /proc/cpuinfo");
     let reader = io::BufReader::new(file);

@@ -14,6 +14,7 @@ impl State {
     }
 
     fn get_memory_info(&mut self) -> (u64, u64) {
+        #[cfg(target_os = "linux")]
         self.sys.refresh_memory();
 
         return (self.sys.used_memory(), self.sys.total_memory());

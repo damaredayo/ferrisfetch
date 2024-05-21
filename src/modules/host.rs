@@ -3,6 +3,7 @@ use std::fs;
 use crate::State;
 
 impl State {
+    #[cfg(target_os = "linux")]
     pub fn fetch_host(&self) -> String {
         const BASE_PATH: &str = "/sys/class/dmi/id/";
         let name = fs::read_to_string(format!("{}{}", BASE_PATH, "product_name"))
@@ -15,5 +16,10 @@ impl State {
             .to_string();
 
         format!("{} ({})", name, version)
+    }
+
+    #[cfg(not(target_os = "linux"))]
+    pub fn fetch_host(&self) -> String {
+        String::new()
     }
 }

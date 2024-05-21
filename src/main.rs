@@ -11,5 +11,8 @@ fn main() {
         sys: sysinfo::System::new(),
     };
 
+    #[cfg(not(target_os = "linux"))]
+    state.sys.refresh_all();
+
     state.print_with_logo();
 }

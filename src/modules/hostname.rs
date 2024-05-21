@@ -2,11 +2,7 @@ use crate::State;
 
 impl State {
     pub fn fetch_hostname(&self) -> String {
-        const HOSTNAME_PATH: &str = "/proc/sys/kernel/hostname";
-        std::fs::read_to_string(HOSTNAME_PATH)
-            .unwrap_or_else(|_| "Unknown".to_string())
-            .trim()
-            .to_string()
+        whoami::fallible::hostname().unwrap_or(String::from("hostname"))
     }
 
     pub fn fetch_username(&self) -> String {
