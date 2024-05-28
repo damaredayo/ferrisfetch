@@ -6,6 +6,7 @@ mod gpu;
 mod host;
 mod hostname;
 mod kernel;
+mod locale;
 mod mem;
 mod os;
 mod packages;
