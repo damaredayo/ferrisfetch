@@ -7,6 +7,8 @@ edition = "2021"
 sysinfo = "0.30"
 whoami = "1.5"
 
+x11rb = {version = "0.13.1", features = ["randr"]}
+
 ash = "0.38"
 nvml-wrapper = "0.10"
 rocm_smi_lib = "0.2"
