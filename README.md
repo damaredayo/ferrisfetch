@@ -42,9 +42,9 @@ The compiled binary will be located at `target/release/ferrisfetch`.
 | Host | host.rs | Fetches the host information | `Host: MS-7D91 (3.0)` | ✅ |
 | Kernel | kernel.rs | Fetches the kernel version | `Kernel: Linux 6.8.9-arch1-2` | ✅ |
 | Uptime | uptime.rs | Fetches the system uptime | `Uptime: 2 hours, 30 minutes` | ✅ |
-| Packages | packages.rs | Fetches the number of installed packages | `Packages: 900 (pacman)` | ❌ |
+| Packages | packages.rs | Fetches the number of installed packages | `Packages: 900 (pacman)` | ✅ |
 | Shell | shell.rs | Fetches the shell name | `Shell: zsh` | ✅ |
-| Display | display.rs | Fetches the screen resolution | `Display (ZOWIE XL LCD): 1920x1080 @ 240Hz` | ❌ |
+| Display | display.rs | Fetches the screen resolution | `Display (ZOWIE XL LCD): 1920x1080 @ 240Hz` | ✅ |
 | DE | de.rs | Fetches the desktop environment or window manager | `DE: Xfce` | ❌ |
 | WM | wm.rs | Fetches the window manager | `WM: LeftWM (X11)` | ✅ (Only X11) |
 | Cursor | cursor.rs | Fetches the current cursor theme | `Cursor: Adwaita` | ❌ |
@@ -56,7 +56,7 @@ The compiled binary will be located at `target/release/ferrisfetch`.
 | GPU | gpu.rs | Fetches the GPU model | `GPU: NVIDIA GeForce RTX 4080` | ✅ |
 | Memory | memory.rs | Fetches the total and used memory | `Memory: 11.11GiB / 31.18GiB (35.63%)` | ✅ |
 | Swap | swap.rs | Fetches the total and used swap space | `Swap: 0.00GiB / 0.00GiB (0.00%)` | ❌ |
-| Disk | disk.rs | Fetches the total and used disk space | `Disk (/): 44.96 GiB / 425.39 GiB (11%) - ext4` | ❌ |
+| Disk | disk.rs | Fetches the total and used disk space | `Disk (/): 44.96 GiB / 425.39 GiB (11%) - ext4` | ✅ |
 | Battery | battery.rs | Fetches the battery status | `Battery: 100%` | ❌ |
 | Network | network.rs | Fetches the network interfaces | `Network (enp5s0): 192.168.0.45/24` | ❌ |
-| Locale | locale.rs | Fetches the system locale | `Locale: en_GB.UTF-8` | ❌ |
+| Locale | locale.rs | Fetches the system locale | `Locale: en_GB.UTF-8` | ✅ |
