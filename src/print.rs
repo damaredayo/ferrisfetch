@@ -109,6 +109,16 @@ impl State {
             str_buf.push_str(&new_line);
         }
 
+        let logo_lines_len = logo.lines().count();
+
+        for line in logo_info.iter().skip(logo_lines_len) {
+            let padding = " ".repeat(logo_width + 5);
+
+            let new_line = format!("{}{}\n", padding, line);
+
+            str_buf.push_str(&new_line);
+        }
+
         print!("{}", str_buf);
     }
 }
