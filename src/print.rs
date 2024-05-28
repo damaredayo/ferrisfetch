@@ -34,14 +34,15 @@ impl State {
         add_string!(output, "Uptime: ", || self.fetch_uptime());
         add_string_vec!(output, "Packages: ", || self.fetch_packages());
         add_string!(output, "Shell: ", || self.fetch_shell());
-        add_string!(output, "Display: ", || self.fetch_display());
+        add_string_vec!(output, "Display: ", || self.fetch_display());
         add_string!(output, "WM: ", || self.fetch_wm());
         add_string!(output, "DE: ", || self.fetch_de());
         add_string!(output, "Terminal: ", || self.fetch_term());
         add_string!(output, "CPU: ", || self.fetch_cpu());
         add_string_vec!(output, "GPU: ", || self.fetch_gpu());
         add_string!(output, "Memory: ", || self.fetch_memory());
-        add_string!(output, "Disk: ", || self.fetch_disk());
+        add_string_vec!(output, "Disk: ", || self.fetch_disk());
+        add_string!(output, "Locale: ", || self.fetch_locale());
 
         println!("{}", output);
     }
@@ -84,14 +85,15 @@ impl State {
         add_string_logo!("Uptime: ", || self.fetch_uptime());
         add_string_vec_logo!("Packages: ", || self.fetch_packages());
         add_string_logo!("Shell: ", || self.fetch_shell());
-        add_string_logo!("Display: ", || self.fetch_display());
+        add_string_vec_logo!("Display: ", || self.fetch_display());
         add_string_logo!("WM: ", || self.fetch_wm());
         add_string_logo!("DE: ", || self.fetch_de());
         add_string_logo!("Terminal: ", || self.fetch_term());
         add_string_logo!("CPU: ", || self.fetch_cpu());
         add_string_vec_logo!("GPU: ", || self.fetch_gpu());
         add_string_logo!("Memory: ", || self.fetch_memory());
-        add_string_logo!("Disk: ", || self.fetch_disk());
+        add_string_vec_logo!("Disk: ", || self.fetch_disk());
+        add_string_logo!("Locale: ", || self.fetch_locale());
 
         let mut str_buf = String::new();
 
