@@ -6,11 +6,16 @@ type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
 impl State {
     pub fn fetch_display(&self) -> Vec<String> {
-        fetch_x11_display().unwrap_or_else(|_| Vec::new())
+        #[cfg(target_os = "linux")]
+        return fetch_x11_display().unwrap_or_else(|_| Vec::new());
+
+        #[cfg(not(target_os = "linux"))]
+        return Vec::new();
+
     }
 }
 
-
+#[cfg(target_os = "linux")]
 fn fetch_x11_display() -> Result<Vec<String>> {
     let mut displays = Vec::new();
 
